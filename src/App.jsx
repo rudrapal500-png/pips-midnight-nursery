@@ -4,7 +4,21 @@ import DreamRoom from './components/DreamRoom/DreamRoom'
 import DreamPassport from './components/DreamPassport/DreamPassport'
 import Credits from './components/Credits/Credits'
 import './App.css'
+function handleCardMove(event) {
+  const card = event.currentTarget;
+  const rect = card.getBoundingClientRect();
 
+  const x = (event.clientX - rect.left) / rect.width - 0.5;
+  const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+  card.style.setProperty('--tilt-x', `${-y * 8}deg`);
+  card.style.setProperty('--tilt-y', `${x * 8}deg`);
+}
+
+function handleCardLeave(event) {
+  event.currentTarget.style.setProperty('--tilt-x', '0deg');
+  event.currentTarget.style.setProperty('--tilt-y', '0deg');
+}
 function App() {
   return (
     <>
@@ -21,7 +35,10 @@ function App() {
           </p>
 
           <div className="story-cards-grid">
-            <div className="story-card">
+            <div className="story-card"
+                  onPointerMove={handleCardMove}
+                  onPointerLeave={handleCardLeave}
+            >
               <div className="story-card-icon">🌙</div>
               <h3 className="story-card-title">Midnight Nursery</h3>
               <p className="story-card-desc">
@@ -29,7 +46,10 @@ function App() {
               </p>
             </div>
 
-            <div className="story-card">
+            <div className="story-card"
+                  onPointerMove={handleCardMove}
+                  onPointerLeave={handleCardLeave}
+            >
               <div className="story-card-icon">✨</div>
               <h3 className="story-card-title">Cozy Pinpricks of Light</h3>
               <p className="story-card-desc">
@@ -37,7 +57,10 @@ function App() {
               </p>
             </div>
 
-            <div className="story-card">
+            <div className="story-card"
+                  onPointerMove={handleCardMove}
+                  onPointerLeave={handleCardLeave}
+            >
               <div className="story-card-icon">🦄</div>
               <h3 className="story-card-title">Canonical Keepsakes</h3>
               <p className="story-card-desc">
