@@ -1,0 +1,348 @@
+/* ==========================================================================
+   Project 2: The Nightlight Collection CSS
+   ========================================================================== */
+
+.nightlight-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* Light Mode: Warm Golden */
+.nightlight-card.lamp-on.mode-warm {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 45px rgba(254, 240, 138, 0.22);
+  border-color: rgba(254, 240, 138, 0.45);
+}
+
+.nightlight-card.lamp-on.mode-warm .nightlight-bloom-aura {
+  background: radial-gradient(circle, rgba(254, 240, 138, 0.48) 0%, rgba(251, 146, 60, 0.2) 50%, transparent 75%);
+}
+
+.nightlight-card.lamp-on.mode-warm .power-indicator-dot {
+  background: #fde047;
+  box-shadow: 0 0 10px #fde047;
+}
+
+/* Light Mode: Cool Moonlight */
+.nightlight-card.lamp-on.mode-cool {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 45px rgba(165, 243, 252, 0.22);
+  border-color: rgba(165, 243, 252, 0.45);
+}
+
+.nightlight-card.lamp-on.mode-cool .nightlight-bloom-aura {
+  background: radial-gradient(circle, rgba(165, 243, 252, 0.48) 0%, rgba(192, 132, 252, 0.2) 50%, transparent 75%);
+}
+
+.nightlight-card.lamp-on.mode-cool .power-indicator-dot {
+  background: #a5f3fc;
+  box-shadow: 0 0 10px #a5f3fc;
+}
+
+/* Light State: Off */
+.nightlight-card.lamp-off {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-color: rgba(216, 180, 254, 0.15);
+}
+
+.nightlight-card.lamp-off .nightlight-bloom-aura {
+  opacity: 0.15;
+  filter: blur(50px);
+}
+
+.nightlight-card.lamp-off .nightlight-image {
+  filter: brightness(0.55) contrast(0.9) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.6));
+}
+
+.nightlight-card.lamp-off .bedside-lantern {
+  opacity: 0.25;
+}
+
+.nightlight-card.lamp-off .power-indicator-dot {
+  background: #64748b;
+  box-shadow: none;
+}
+
+/* Power On Bloom Pulse */
+.nightlight-card.lamp-pulse .nightlight-bloom-aura {
+  animation: lampTurnOnFlash 0.75s ease-out forwards;
+}
+
+@keyframes lampTurnOnFlash {
+  0% { transform: scale(0.6); opacity: 0.2; }
+  40% { transform: scale(1.35); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.85; }
+}
+
+/* Visual Stage */
+.nightlight-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 320px;
+  margin: 16px 0 20px;
+  user-select: none;
+  overflow: hidden;
+}
+
+/* Bloom Aura & Light Wash */
+.nightlight-bloom-aura {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  filter: blur(45px);
+  z-index: 1;
+  pointer-events: none;
+  transition: all 0.5s ease;
+  animation: nightlightBreathe 5s ease-in-out infinite alternate;
+}
+
+@keyframes nightlightBreathe {
+  0% { transform: scale(0.94); }
+  100% { transform: scale(1.08); }
+}
+
+/* Lamp Image Wrapper */
+.nightlight-lamp-wrapper {
+  position: relative;
+  z-index: 3;
+  animation: lampFloat 5.2s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes lampFloat {
+  0% { transform: translateY(0) rotate(-0.5deg); }
+  50% { transform: translateY(-8px) rotate(0.8deg); }
+  100% { transform: translateY(2px) rotate(-0.2deg); }
+}
+
+.nightlight-image {
+  display: block;
+  max-width: 250px;
+  max-height: 250px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: filter 0.4s ease;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.45));
+}
+
+.nightlight-card.lamp-on.mode-warm .nightlight-image {
+  filter: drop-shadow(0 0 25px rgba(254, 240, 138, 0.55)) drop-shadow(0 15px 30px rgba(0, 0, 0, 0.45));
+}
+
+.nightlight-card.lamp-on.mode-cool .nightlight-image {
+  filter: drop-shadow(0 0 25px rgba(165, 243, 252, 0.55)) drop-shadow(0 15px 30px rgba(0, 0, 0, 0.45));
+}
+
+/* Floating Bedside Lanterns */
+.background-lanterns {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bedside-lantern {
+  position: absolute;
+  width: 32px;
+  height: 52px;
+  transition: opacity 0.4s ease;
+}
+
+.lantern-left {
+  top: 18%;
+  left: 12%;
+  animation: lanternFloat 4.2s ease-in-out infinite alternate;
+}
+
+.lantern-right {
+  top: 25%;
+  right: 14%;
+  animation: lanternFloat 5s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes lanternFloat {
+  0% { transform: translateY(0) rotate(-3deg); }
+  100% { transform: translateY(-10px) rotate(3deg); }
+}
+
+.lantern-hanger {
+  display: block;
+  width: 14px;
+  height: 8px;
+  margin: 0 auto;
+  border-top: 2px solid #fef08a;
+  border-left: 2px solid #fef08a;
+  border-right: 2px solid #fef08a;
+  border-radius: 4px 4px 0 0;
+}
+
+.lantern-glass {
+  position: relative;
+  width: 24px;
+  height: 38px;
+  margin: 0 auto;
+  background: rgba(30, 27, 75, 0.65);
+  border: 1.5px solid rgba(254, 240, 138, 0.5);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lantern-spark {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fef08a;
+  box-shadow: 0 0 12px 4px rgba(254, 240, 138, 0.8);
+  animation: sparkFlicker 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes sparkFlicker {
+  0% { opacity: 0.6; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Orbiting Stars System */
+.orbiting-stars-system {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.orbit-star {
+  position: absolute;
+  color: var(--pip-gold);
+  filter: drop-shadow(0 0 6px rgba(253, 224, 71, 0.7));
+  animation: starOrbit 6s ease-in-out infinite alternate;
+}
+
+.star-orbit-1 { top: 12%; left: 40%; font-size: 16px; color: #fef08a; }
+.star-orbit-2 { top: 40%; right: 18%; font-size: 18px; color: #fbcfe8; animation-delay: 1.2s; }
+.star-orbit-3 { bottom: 25%; left: 18%; font-size: 15px; color: #a5f3fc; animation-delay: 2.4s; }
+
+@keyframes starOrbit {
+  0% { transform: translateY(0) scale(0.9); opacity: 0.5; }
+  100% { transform: translateY(-12px) scale(1.15); opacity: 1; }
+}
+
+/* Controls */
+.nightlight-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(216, 180, 254, 0.15);
+}
+
+.btn-power-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 20px;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s ease;
+}
+
+.btn-power-toggle.on {
+  background: linear-gradient(135deg, #eab308 0%, #f59e0b 100%);
+  color: #1e1b4b;
+  box-shadow: 0 4px 18px rgba(234, 179, 8, 0.4);
+}
+
+.btn-power-toggle.off {
+  background: rgba(30, 27, 75, 0.8);
+  color: #94a3b8;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.btn-power-toggle:hover {
+  transform: translateY(-2px);
+}
+
+.btn-power-toggle:focus-visible {
+  outline: 2px solid var(--pip-gold);
+  outline-offset: 2px;
+}
+
+.power-indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+/* Mode Switcher Tabs */
+.light-mode-selector {
+  display: inline-flex;
+  background: rgba(22, 19, 53, 0.8);
+  border: 1px solid rgba(216, 180, 254, 0.25);
+  border-radius: 9999px;
+  padding: 3px;
+  gap: 3px;
+}
+
+.btn-mode-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 9999px;
+  background: none;
+  border: none;
+  color: #cbd5e1;
+  font-size: 12.5px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-mode-tab:hover {
+  color: #ffffff;
+}
+
+.btn-mode-tab.active {
+  background: rgba(216, 180, 254, 0.18);
+  color: var(--pip-cream);
+  font-weight: 600;
+}
+
+.mode-swatch {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.warm-swatch { background: #fde047; box-shadow: 0 0 6px #fde047; }
+.cool-swatch { background: #a5f3fc; box-shadow: 0 0 6px #a5f3fc; }
+
+/* Status Bar */
+.nightlight-status-bar {
+  margin-top: 12px;
+  font-size: 11.5px;
+  color: var(--pip-lavender);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nightlight-lamp-wrapper,
+  .bedside-lantern,
+  .lantern-spark,
+  .orbit-star,
+  .nightlight-bloom-aura {
+    animation: none !important;
+  }
+}

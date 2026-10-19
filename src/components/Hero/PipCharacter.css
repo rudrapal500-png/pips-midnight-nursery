@@ -1,0 +1,388 @@
+.pip-visual-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 520px;
+  height: 580px;
+  margin: 0 auto;
+  user-select: none;
+}
+
+/* Lavender-Pink Pulsing Aura behind Pip */
+.pip-glow-pulse {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(55px);
+  z-index: 1;
+}
+
+.pip-glow-outer {
+  width: 440px;
+  height: 440px;
+  background: radial-gradient(circle, rgba(216, 180, 254, 0.45) 0%, rgba(244, 114, 182, 0.25) 50%, transparent 75%);
+  animation: auraPulse 6s ease-in-out infinite alternate;
+}
+
+.pip-glow-inner {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(254, 240, 138, 0.4) 0%, rgba(244, 114, 182, 0.35) 60%, transparent 80%);
+  animation: auraPulse 4s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes auraPulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.65;
+  }
+  100% {
+    transform: scale(1.12);
+    opacity: 0.95;
+  }
+}
+
+/* Floating Orbiting Stars around Pip */
+.pip-orbiting-star {
+  position: absolute;
+  color: var(--pip-gold-soft);
+  font-size: 18px;
+  pointer-events: none;
+  z-index: 3;
+  filter: drop-shadow(0 0 6px rgba(253, 224, 71, 0.7));
+  animation: starTwinkleFloat 4s ease-in-out infinite alternate;
+}
+
+.star-pos-1 { top: 12%; left: 8%; animation-delay: 0s; font-size: 22px; color: #fbcfe8; }
+.star-pos-2 { top: 22%; right: 10%; animation-delay: 0.8s; font-size: 16px; color: #fef08a; }
+.star-pos-3 { bottom: 35%; left: 4%; animation-delay: 1.6s; font-size: 20px; color: #d8b4fe; }
+.star-pos-4 { bottom: 28%; right: 6%; animation-delay: 2.2s; font-size: 18px; color: #fbcfe8; }
+.star-pos-5 { top: 4%; right: 28%; animation-delay: 1.2s; font-size: 14px; color: #fffbeb; }
+
+@keyframes starTwinkleFloat {
+  0% {
+    opacity: 0.4;
+    transform: translateY(0) scale(0.85) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.15) rotate(15deg);
+  }
+}
+
+/* Main Pip Container with Floating Animation */
+.pip-character-container {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation: pipGentleFloat 5.5s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes pipGentleFloat {
+  0% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+  100% {
+    transform: translateY(4px) rotate(-0.5deg);
+  }
+}
+
+/* Pip Giggle Wobble Animation upon click */
+.pip-giggling {
+  animation: pipGiggle 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) !important;
+}
+
+@keyframes pipGiggle {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  20% { transform: scale(1.06) rotate(-3deg); }
+  40% { transform: scale(0.96) rotate(3.5deg); }
+  60% { transform: scale(1.04) rotate(-2deg); }
+  80% { transform: scale(0.98) rotate(1.5deg); }
+}
+
+/* Interactive Button Wrapper */
+.pip-interactive-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  outline: none;
+  border-radius: 40px;
+  transition: filter 0.3s ease;
+}
+
+.pip-interactive-button:hover .pip-character-image {
+  filter: drop-shadow(0 15px 35px rgba(244, 114, 182, 0.45))
+         drop-shadow(0 5px 15px rgba(216, 180, 254, 0.4));
+}
+
+.pip-interactive-button:hover .pip-interactive-hint {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.pip-interactive-button:focus-visible {
+  outline: 3px solid var(--pip-lavender);
+  outline-offset: 12px;
+}
+
+/* Pip Canonical Artwork Image */
+.pip-character-image {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 480px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 25px rgba(216, 180, 254, 0.3))
+         drop-shadow(0 5px 10px rgba(0, 0, 0, 0.35));
+  transition: filter 0.3s ease;
+}
+
+/* Cozy Eye Glow Pinpricks */
+.pip-eye-glow {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fffbeb;
+  box-shadow: 0 0 10px 4px rgba(254, 240, 138, 0.85);
+  pointer-events: none;
+  animation: eyeBlinkGlow 4s ease-in-out infinite;
+}
+
+/* Approximate eye coordinates relative to image */
+.eye-left {
+  top: 43.5%;
+  left: 41.5%;
+}
+
+.eye-right {
+  top: 39.5%;
+  left: 63.5%;
+}
+
+@keyframes eyeBlinkGlow {
+  0%, 90%, 100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  94% {
+    opacity: 0.15;
+    transform: scale(0.3);
+  }
+}
+
+/* Warm Lantern Glow */
+.pip-lantern-glow {
+  position: absolute;
+  top: 61%;
+  left: 39%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(254, 240, 138, 0.6) 0%, rgba(251, 146, 60, 0.25) 50%, transparent 75%);
+  filter: blur(10px);
+  pointer-events: none;
+  animation: lanternFlicker 3s ease-in-out infinite alternate;
+}
+
+@keyframes lanternFlicker {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  100% { transform: scale(1.15); opacity: 1; }
+}
+
+/* Tap Hint Pill */
+.pip-interactive-hint {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: rgba(15, 18, 44, 0.85);
+  border: 1px solid rgba(216, 180, 254, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--pip-cream);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+  opacity: 0.75;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+}
+
+.hint-star {
+  color: var(--pip-gold);
+  font-size: 11px;
+}
+
+/* Cloud Base Shadow */
+.pip-cloud-shadow {
+  position: absolute;
+  bottom: 25px;
+  width: 320px;
+  height: 35px;
+  background: radial-gradient(ellipse at 50% 50%, rgba(15, 18, 44, 0.6) 0%, transparent 75%);
+  border-radius: 50%;
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Speech Bubble */
+.pip-speech-bubble {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 330px;
+  background: rgba(22, 19, 53, 0.94);
+  border: 1.5px solid rgba(216, 180, 254, 0.45);
+  border-radius: 18px;
+  padding: 14px 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(168, 85, 247, 0.25);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 10;
+  animation: bubblePopIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes bubblePopIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(12px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+.bubble-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.bubble-pip-badge {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--pip-pink);
+  letter-spacing: 0.5px;
+}
+
+.bubble-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+  padding: 2px 5px;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.bubble-close-btn:hover {
+  color: var(--pip-cream);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.bubble-text {
+  font-family: var(--font-display);
+  font-size: 14px;
+  line-height: 140%;
+  color: var(--pip-cream);
+  font-weight: 500;
+  margin: 0 0 6px 0;
+}
+
+.bubble-hint {
+  display: block;
+  font-size: 10px;
+  color: var(--pip-lavender);
+  opacity: 0.8;
+}
+
+.bubble-tail {
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 16px;
+  height: 16px;
+  background: rgba(22, 19, 53, 0.94);
+  border-right: 1.5px solid rgba(216, 180, 254, 0.45);
+  border-bottom: 1.5px solid rgba(216, 180, 254, 0.45);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .pip-visual-stage {
+    max-width: 440px;
+    height: 500px;
+  }
+  .pip-character-image {
+    height: 420px;
+  }
+  .pip-glow-outer {
+    width: 380px;
+    height: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pip-visual-stage {
+    max-width: 340px;
+    height: 400px;
+    margin-top: 10px;
+  }
+  .pip-character-image {
+    height: 340px;
+  }
+  .pip-glow-outer {
+    width: 300px;
+    height: 300px;
+  }
+  .pip-speech-bubble {
+    top: -5px;
+    max-width: 290px;
+    padding: 12px 14px;
+  }
+  .pip-interactive-hint {
+    bottom: 45px;
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .pip-character-container,
+  .pip-glow-pulse,
+  .pip-orbiting-star,
+  .pip-giggling,
+  .pip-eye-glow,
+  .pip-lantern-glow {
+    animation: none !important;
+  }
+  .pip-visual-stage {
+    transform: none !important;
+  }
+}

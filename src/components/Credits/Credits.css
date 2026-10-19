@@ -1,0 +1,584 @@
+/* ==========================================================================
+   Section 5: Behind the Dreams & Credits CSS
+   ========================================================================== */
+
+.credits-section {
+  position: relative;
+  width: 100%;
+  padding: 100px 24px 80px;
+  background-color: var(--sky-deep);
+  border-top: 1.5px solid rgba(216, 180, 254, 0.2);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Atmospheric Backdrop */
+.credits-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.closing-moon-orb {
+  position: absolute;
+  top: 8%;
+  right: 12%;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(254, 240, 138, 0.4) 0%, rgba(216, 180, 254, 0.15) 50%, transparent 75%);
+  filter: blur(28px);
+  animation: moonPulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes moonPulse {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.15); opacity: 0.95; }
+}
+
+.closing-twilight-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 10%, rgba(124, 58, 237, 0.12) 0%, transparent 70%),
+              linear-gradient(to bottom, transparent 0%, rgba(13, 17, 45, 0.6) 60%, rgba(7, 9, 25, 0.95) 100%);
+}
+
+.closing-stardust-trail {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: radial-gradient(ellipse at 50% 100%, rgba(244, 114, 182, 0.12) 0%, transparent 70%);
+}
+
+/* Main Container */
+.credits-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+/* ==========================================================================
+   Storybook Farewell Card
+   ========================================================================== */
+
+.closing-farewell-card {
+  background: rgba(22, 19, 53, 0.76);
+  border: 1.5px solid rgba(216, 180, 254, 0.28);
+  border-radius: 32px;
+  padding: 48px 40px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.credits-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(216, 180, 254, 0.12);
+  border: 1px solid rgba(216, 180, 254, 0.3);
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--pip-lavender);
+  margin-bottom: 16px;
+}
+
+.closing-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  font-weight: 700;
+  color: var(--pip-cream);
+  line-height: 115%;
+  margin: 0 0 12px;
+  letter-spacing: -0.6px;
+}
+
+.closing-supporting {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  line-height: 160%;
+  color: #cbd5e1;
+  max-width: 680px;
+  margin: 0 auto 36px;
+}
+
+/* Storybook 2-Column Content */
+.closing-storybook-content {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  align-items: center;
+  gap: 40px;
+  text-align: left;
+}
+
+.pip-endpiece-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pip-endpiece-glow {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(216, 180, 254, 0.35) 0%, rgba(244, 114, 182, 0.18) 55%, transparent 75%);
+  filter: blur(35px);
+  z-index: 1;
+}
+
+.pip-endpiece-img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.5));
+  animation: endpieceFloat 5s ease-in-out infinite alternate;
+}
+
+@keyframes endpieceFloat {
+  0% { transform: translateY(0) rotate(-1deg); }
+  100% { transform: translateY(-8px) rotate(1deg); }
+}
+
+.closing-letter-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.closing-quote-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  line-height: 160%;
+  color: var(--pip-cream);
+  font-weight: 500;
+  margin: 0 0 24px;
+  padding-left: 20px;
+  border-left: 3px solid var(--pip-pink);
+}
+
+.closing-signature {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 28px;
+}
+
+.signature-line {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--pip-lavender);
+  font-style: italic;
+}
+
+.signature-name {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--pip-cream);
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 15px rgba(244, 114, 182, 0.4);
+}
+
+/* Leave a Little Stardust Interaction */
+.stardust-interaction-block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.btn-leave-stardust {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(168, 85, 247, 0.4);
+  transition: all 0.25s ease;
+  outline: none;
+}
+
+.btn-leave-stardust:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(168, 85, 247, 0.55);
+}
+
+.btn-leave-stardust:focus-visible {
+  outline: 2px solid var(--pip-pink);
+  outline-offset: 3px;
+}
+
+.btn-leave-stardust.bursting {
+  background: linear-gradient(135deg, #f59e0b 0%, #ec4899 100%);
+}
+
+.stardust-btn-icon {
+  font-size: 16px;
+}
+
+/* Stardust Particle Burst */
+.stardust-particles-burst {
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.spark-particle {
+  position: absolute;
+  font-size: 18px;
+  color: var(--pip-gold);
+  animation: burstParticle 1.4s ease-out forwards;
+}
+
+.spark-1 { animation-delay: 0s; --tx: -40px; --ty: -50px; color: #fef08a; }
+.spark-2 { animation-delay: 0.1s; --tx: 30px; --ty: -60px; color: #fbcfe8; }
+.spark-3 { animation-delay: 0.15s; --tx: -60px; --ty: -10px; color: #d8b4fe; }
+.spark-4 { animation-delay: 0.2s; --tx: 50px; --ty: -20px; color: #fde047; }
+.spark-5 { animation-delay: 0.25s; --tx: -20px; --ty: -70px; color: #ffffff; }
+.spark-6 { animation-delay: 0.3s; --tx: 70px; --ty: -40px; color: #f472b6; }
+
+@keyframes burstParticle {
+  0% {
+    transform: translate(0, 0) scale(0.6) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx, 30px), var(--ty, -50px)) scale(1.4) rotate(90deg);
+    opacity: 0;
+  }
+}
+
+.stardust-message-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(253, 224, 71, 0.4);
+  color: var(--pip-gold);
+  font-size: 13px;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   Behind the Dreams Panel
+   ========================================================================== */
+
+.behind-the-dreams-panel {
+  background: rgba(22, 19, 53, 0.65);
+  border: 1.5px solid rgba(216, 180, 254, 0.22);
+  border-radius: 28px;
+  padding: 36px 32px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.panel-badge-icon {
+  font-size: 20px;
+}
+
+.panel-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--pip-cream);
+  margin: 0;
+}
+
+.behind-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.behind-item {
+  background: rgba(30, 27, 75, 0.55);
+  border: 1px solid rgba(216, 180, 254, 0.16);
+  border-radius: 18px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.behind-tag {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--pip-pink);
+}
+
+.behind-text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 155%;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Honest Credits Panel: "The Little Details"
+   ========================================================================== */
+
+.honest-credits-panel {
+  background: rgba(22, 19, 53, 0.5);
+  border: 1px solid rgba(216, 180, 254, 0.18);
+  border-radius: 28px;
+  padding: 36px 32px;
+}
+
+.credits-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.credit-entry {
+  background: rgba(15, 18, 44, 0.5);
+  border: 1px solid rgba(216, 180, 254, 0.12);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.credit-heading {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--pip-cream);
+  margin: 0 0 6px;
+}
+
+.credit-desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 155%;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.credit-desc code {
+  background: rgba(216, 180, 254, 0.12);
+  color: var(--pip-lavender);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.credit-desc em {
+  color: var(--pip-pink-soft);
+  font-style: normal;
+}
+
+/* ==========================================================================
+   Final Navigation Bar
+   ========================================================================== */
+
+.final-navigation-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 20px;
+}
+
+.btn-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 9999px;
+  background: rgba(22, 19, 53, 0.8);
+  border: 1.5px solid rgba(216, 180, 254, 0.3);
+  color: var(--pip-cream);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  outline: none;
+}
+
+.btn-nav-link:hover {
+  background: rgba(43, 33, 90, 0.95);
+  border-color: var(--pip-pink);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(168, 85, 247, 0.3);
+}
+
+.btn-nav-link:focus-visible {
+  outline: 2px solid var(--pip-lavender);
+  outline-offset: 3px;
+}
+
+.btn-back-top {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.25) 0%, rgba(236, 72, 153, 0.25) 100%);
+  border-color: rgba(244, 114, 182, 0.45);
+}
+
+.btn-back-top:hover {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  color: #ffffff;
+}
+
+.nav-arrow {
+  color: var(--pip-gold);
+  font-size: 14px;
+  transition: transform 0.25s ease;
+}
+
+.btn-nav-link:hover .nav-arrow {
+  transform: translateX(3px);
+}
+
+.btn-back-top:hover .nav-arrow {
+  transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   Nursery Colophon
+   ========================================================================== */
+
+.nursery-colophon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(216, 180, 254, 0.12);
+  text-align: center;
+}
+
+.colophon-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.colophon-moon {
+  color: var(--pip-gold);
+}
+
+.colophon-star {
+  color: var(--pip-pink);
+  font-size: 14px;
+}
+
+.colophon-brand {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--pip-cream);
+  margin: 0;
+}
+
+.colophon-tagline {
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .closing-storybook-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .closing-quote-text {
+    padding-left: 0;
+    border-left: none;
+    border-top: 2px solid var(--pip-pink);
+    padding-top: 16px;
+  }
+
+  .closing-signature {
+    align-items: center;
+  }
+
+  .stardust-interaction-block {
+    align-items: center;
+  }
+
+  .behind-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .credits-section {
+    padding: 70px 18px 60px;
+  }
+
+  .closing-farewell-card {
+    padding: 32px 20px;
+    border-radius: 24px;
+  }
+
+  .behind-the-dreams-panel,
+  .honest-credits-panel {
+    padding: 24px 18px;
+    border-radius: 20px;
+  }
+
+  .btn-nav-link {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pip-endpiece-img,
+  .spark-particle,
+  .closing-moon-orb {
+    animation: none !important;
+    transition: none !important;
+  }
+}

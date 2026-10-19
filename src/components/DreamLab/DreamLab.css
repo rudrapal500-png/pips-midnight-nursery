@@ -1,0 +1,272 @@
+/* ==========================================================================
+   Section 3: Pip's Dream Lab Showcase CSS
+   ========================================================================== */
+
+.dream-lab-showcase-section {
+  position: relative;
+  width: 100%;
+  padding: 110px 24px 130px;
+  background-color: var(--sky-deep);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Atmospheric Backdrop */
+.dream-lab-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.lab-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(85px);
+  opacity: 0.28;
+}
+
+.orb-1 {
+  top: 10%;
+  left: 15%;
+  width: 500px;
+  height: 450px;
+  background: radial-gradient(circle, #7c3aed 0%, transparent 70%);
+}
+
+.orb-2 {
+  top: 35%;
+  right: 10%;
+  width: 600px;
+  height: 500px;
+  background: radial-gradient(circle, #ec4899 0%, #a855f7 50%, transparent 75%);
+}
+
+.orb-3 {
+  bottom: 5%;
+  left: 40%;
+  width: 700px;
+  height: 450px;
+  background: radial-gradient(circle, #3b82f6 0%, transparent 70%);
+  opacity: 0.18;
+}
+
+.lab-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(216, 180, 254, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(216, 180, 254, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.6;
+}
+
+/* Container */
+.dream-lab-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* Header */
+.dream-lab-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 65px;
+}
+
+.dream-lab-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(244, 114, 182, 0.12);
+  border: 1px solid rgba(244, 114, 182, 0.32);
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--pip-pink);
+  margin-bottom: 18px;
+}
+
+.eyebrow-star {
+  color: var(--pip-gold);
+  font-size: 13px;
+}
+
+.dream-lab-title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  font-weight: 700;
+  color: var(--pip-cream);
+  line-height: 115%;
+  letter-spacing: -0.8px;
+  margin: 0 0 14px;
+}
+
+/* Decorative Animated Star */
+.animated-heading-star {
+  display: inline-block;
+  color: var(--pip-gold);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  filter: drop-shadow(0 0 10px rgba(253, 224, 71, 0.85));
+  animation: headingStarSpin 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes headingStarSpin {
+  0% { transform: rotate(0deg) scale(0.9); }
+  50% { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(0.9); }
+}
+
+.dream-lab-subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-weight: 600;
+  color: var(--pip-lavender);
+  margin: 0 0 16px;
+  line-height: 135%;
+}
+
+.dream-lab-supporting {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  line-height: 165%;
+  color: #cbd5e1;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Project Showcase 3-Column Grid */
+.dream-lab-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  align-items: stretch;
+}
+
+/* Common Project Card Glassmorphism */
+.project-card {
+  background: rgba(22, 19, 53, 0.72);
+  border: 1.5px solid rgba(216, 180, 254, 0.24);
+  border-radius: 28px;
+  padding: 32px 28px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(216, 180, 254, 0.5);
+}
+
+.project-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--pip-lavender);
+  margin-bottom: 12px;
+}
+
+.category-star {
+  color: var(--pip-gold);
+  font-size: 12px;
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2vw, 1.75rem);
+  font-weight: 700;
+  color: var(--pip-cream);
+  margin: 0 0 10px;
+  letter-spacing: -0.3px;
+}
+
+.project-description {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 155%;
+  color: #94a3b8;
+  margin: 0 0 14px;
+  min-height: 64px;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+/* Large Tablets & Medium screens */
+@media (max-width: 1140px) {
+  .dream-lab-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  /* Make the 3rd card span full width on 2-col tablet */
+  .dream-lab-grid > .project-card:last-child {
+    grid-column: span 2;
+    max-width: 650px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+/* Mobile Screens */
+@media (max-width: 768px) {
+  .dream-lab-showcase-section {
+    padding: 70px 18px 90px;
+  }
+
+  .dream-lab-header {
+    margin-bottom: 40px;
+  }
+
+  .dream-lab-title {
+    flex-wrap: wrap;
+    font-size: 2.3rem;
+  }
+
+  .dream-lab-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .dream-lab-grid > .project-card:last-child {
+    grid-column: span 1;
+    max-width: 100%;
+  }
+
+  .project-card {
+    padding: 24px 20px;
+    border-radius: 22px;
+  }
+
+  .project-description {
+    min-height: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-heading-star,
+  .project-card {
+    animation: none !important;
+    transition: none !important;
+  }
+}

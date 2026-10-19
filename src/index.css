@@ -1,0 +1,103 @@
+:root {
+  /* Midnight Nursery Dream Theme */
+  --sky-deep: #070919;
+  --sky-mid: #0d112d;
+  --sky-violet: #191438;
+  --sky-purple: #231b4c;
+  
+  --pip-cream: #fff8ee;
+  --pip-cream-soft: #fbf0df;
+  --pip-lavender: #d8b4fe;
+  --pip-lavender-glow: rgba(216, 180, 254, 0.4);
+  --pip-pink: #f472b6;
+  --pip-pink-soft: #fbcfe8;
+  --pip-pink-glow: rgba(244, 114, 182, 0.45);
+  --pip-gold: #fde047;
+  --pip-gold-soft: #fef08a;
+
+  --text-primary: #fff8ee;
+  --text-secondary: #c4b5fd;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+
+  --font-display: 'Fredoka', 'Quicksand', system-ui, -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, Consolas, monospace;
+
+  /* Legacy compatibility variables */
+  --text: #c4b5fd;
+  --text-h: #fff8ee;
+  --bg: #070919;
+  --border: rgba(167, 139, 250, 0.2);
+  --code-bg: rgba(30, 27, 75, 0.6);
+  --accent: #c084fc;
+  --accent-bg: rgba(192, 132, 252, 0.15);
+  --accent-border: rgba(192, 132, 252, 0.5);
+  --social-bg: rgba(26, 20, 56, 0.7);
+  --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+
+  font: 16px/150% var(--font-body);
+  letter-spacing: 0.2px;
+  color-scheme: dark;
+  color: var(--text-primary);
+  background: var(--sky-deep);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--sky-deep);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Base Headings & Links */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
